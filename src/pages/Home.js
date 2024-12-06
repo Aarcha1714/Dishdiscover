@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import styles from './Home.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { TailSpin } from 'react-loader-spinner';
 import data from './data';
 
-const API_KEY = '6e837d10e4614b47a57625349a547e60'; // Replace with your Spoonacular API key
+// const API_KEY = '6e837d10e4614b47a57625349a547e60'; 
+const API_KEY = 'db258a1c37374b2ab455c036a69e609a';
 const INITIAL_SEARCH_QUERY = 'tomato'; // Example initial search query
 
 const Home = () => {
@@ -12,6 +14,7 @@ const Home = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   console.log(selectedOptions.length);
   const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   console.log(recipes);
   const navigate = useNavigate();
   const location = useLocation();
@@ -77,7 +80,7 @@ const Home = () => {
     // Extract the selected ingredient labels to form a comma-separated string
     const ingredientLabels = selectedOptions.map(option => option.label).join(',+');
     console.log(`Searching for recipes with: ${ingredientLabels}`);
-  
+    setIsLoading(true);
     try {
       // Call the Spoonacular API to get recipes based on selected ingredients
       const response = await fetch(
@@ -94,6 +97,7 @@ const Home = () => {
     } catch (error) {
       console.error('Error fetching recipes:', error);
     }
+    setIsLoading(false); 
   };
   const handleRecipeClick = (id) => {
     navigate(`/recipe/${id}`, { state: { previousSearch: selectedOptions, previousRecipes: recipes } });
@@ -103,6 +107,7 @@ const Home = () => {
       <div className={styles.container}>
         {/* Search Box Section */}
         <div>DishDiscover</div>
+        <p>Find the best recipes using your favorite ingredients!</p>
         <div className={styles.selectButtonWrapper}>
           <CreatableSelect
             placeholder="Search ingredients"
@@ -128,7 +133,12 @@ const Home = () => {
         </div>
     
         {/* Recipes Display Section */}
-        {recipes.length > 0 && (
+        {isLoading ? (
+        <div className={styles.loader}>
+          <TailSpin color="#2563eb" height={20} width={20} />
+        </div>
+      ) : (
+        recipes.length > 0 && (
         <div className={styles.recipesContainer}>
           {recipes.map((recipe) => (
             <div
@@ -143,7 +153,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      )}
+      ))}
 
       </div>
   );

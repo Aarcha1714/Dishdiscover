@@ -90,6 +90,7 @@
   height: auto;
   border-radius: 8px;
   margin-bottom: 12px; /* Space below image */
+  color: black;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for image */
 }
 
