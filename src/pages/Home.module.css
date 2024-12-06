@@ -1,0 +1,146 @@
+/* Container that centers the content */
+.container {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh; /* Ensure content fills the viewport */
+  background: linear-gradient(135deg, rgba(8, 7, 7, 0.8), rgba(8, 7, 7, 0.8)), 
+              url('/public/bg4.jpg') no-repeat center center / cover;
+  color: #f1f5f9; /* Soft white text */
+}
+
+/* Wrapper for the select and search button */
+.selectButtonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 10px;
+  margin-bottom: 30px; /* Increased spacing for better separation */
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* Styles for the search button */
+.searchButton {
+  background-color: #2563eb; /* Darker blue */
+  border: none;
+  color: #f1f5f9;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #1e40af; /* Even darker blue for hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Styling the container of the recipes */
+.recipesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 24px; /* Larger gaps between cards */
+  padding: 10px;
+  width: 100%; /* Full width for alignment */
+}
+
+/* Individual recipe card styling */
+.recipeCard {
+  border: 1px solid rgba(209, 213, 219, 0.3); /* Lighter border */
+  padding: 20px;
+  border-radius: 12px;
+  background: #ffffff; /* White background for contrast */
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.recipeCard:hover {
+  transform: translateY(-5px) scale(1.03); /* Slight zoom and lift on hover */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2); /* Stronger hover shadow */
+}
+
+/* Recipe title styling */
+.recipeCard h3 {
+  font-size: 18px;
+  color: #1e3a8a; /* Dark blue */
+  margin-bottom: 12px;
+  white-space: nowrap;   /* Prevents text from wrapping */
+  overflow: hidden;      /* Hides overflowing content */
+  text-overflow: ellipsis;
+  font-weight: 700;
+}
+
+/* Used ingredients styling */
+.recipeCard p {
+  font-size: 14px;
+  color: #374151; /* Neutral gray */
+  margin-top: 10px;
+}
+
+/* Recipe image styling */
+.recipeImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px; /* Space below image */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for image */
+}
+
+/* Ensuring the creatable select input takes enough space */
+.creatableSelect {
+  width: 100%;
+  min-width: 300px;
+  font-size: 14px;
+  color: #111827; /* Darker text for better readability */
+}
+
+/* Styling the creatable select component */
+.css-1s2u09g-control {
+  border: 2px solid #2563eb; /* Blue border */
+  border-radius: 8px;
+  box-shadow: none;
+  transition: border-color 0.3s;
+}
+
+.css-1s2u09g-control:hover {
+  border-color: #1e40af; /* Darker blue on hover */
+}
+
+.css-1pahdxg-control {
+  border-color: #1e40af; /* Darker blue on focus */
+  box-shadow: 0 0 4px #1e40af; /* Subtle glow */
+}
+
+/* Menu styling */
+.css-26l3qy-menu {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Option hover effect */
+.css-yt9ioa-option:hover {
+  background-color: #2563eb; /* Blue background */
+  color: white;
+}
+
+/* Selected option styling */
+.css-1n7v3ny-option {
+  background-color: #2563eb; /* Blue */
+  color: white;
+}
+
+/* Placeholder text styling */
+.css-1wa3eu0-placeholder {
+  color: #6b7280; /* Gray text */
+  font-style: italic;
+}
+
