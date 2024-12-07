@@ -4,7 +4,7 @@
   max-width: 900px;
   margin: 30px auto;
   border-radius: 15px;
-  background: rgba(30, 30, 30, 0.9); /* Elegant dark overlay */
+  background: black; /* Elegant dark overlay */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Rich shadow */
   backdrop-filter: blur(15px); /* Slight blur effect */
   color: #ffffff;
@@ -24,7 +24,7 @@ body {
 .title {
   font-size: 32px;
   margin-bottom: 20px;
-  color: #f3f4f6; /* Soft white */
+  color: #61dafb; /* Soft white */
   text-align: center;
   font-weight: 700;
   text-transform: capitalize;
@@ -52,16 +52,16 @@ body {
 .head {
   font-weight: 700;
   font-size: 20px;
-  color: #3b82f6; /* Vibrant blue */
+  color: #61dafb; /* Vibrant blue */
   margin-bottom: 12px;
-  border-bottom: 2px solid #3b82f6;
+  border-bottom: 2px solid #61dafb;
   padding-bottom: 6px;
 }
 
 /* Summary section styling */
 .summary {
   font-size: 18px;
-  color: #d1d5db; /* Light grey text */
+  color: #ffff; /* Light grey text */
   line-height: 1.8;
   margin-bottom: 25px;
   text-align: justify;
@@ -75,13 +75,13 @@ body {
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 12px;
-  color: #f3f4f6;
+  color: #ffff;
 }
 
 .subhead {
   font-weight: 400;
   font-size: 18px;
-  color: #9ca3af; /* Muted grey */
+  color: #fff; /* Muted grey */
 }
 
 /* Ingredients list styling */
@@ -89,7 +89,7 @@ body {
   list-style-type: disc;
   padding-left: 25px;
   margin-bottom: 25px;
-  color: #e5e7eb; /* Subtle light text */
+  color: #fff; /* Subtle light text */
 }
 
 .ingredientsList li {
@@ -105,7 +105,7 @@ body {
 .instructions {
   font-size: 18px;
   line-height: 1.8;
-  color: #e5e7eb;
+  color: #fff;
   background-color: #1f2937; /* Slightly lighter grey background */
   padding: 20px;
   border-radius: 12px;
@@ -126,7 +126,7 @@ body {
 
 .arrowIcon {
   font-size: 28px;
-  color: #3b82f6; /* Vibrant blue */
+  color: #61dafb; /* Vibrant blue */
   transition: transform 0.2s ease-in-out;
 }
 
@@ -136,7 +136,7 @@ body {
 
 .icon {
   font-size: 18px; /* Adjust icon size */
-  color: #3b82f6; /* Icon color matching the design */
+  color: #61dafb; /* Icon color matching the design */
   margin-right: 8px; /* Space between icon and text */
 }
 

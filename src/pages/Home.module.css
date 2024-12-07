@@ -23,9 +23,9 @@
 
 /* Styles for the search button */
 .searchButton {
-  background-color: #2563eb; /* Darker blue */
+  background-color: #61dafb;
   border: none;
-  color: #f1f5f9;
+  color: black;
   padding: 12px 20px;
   border-radius: 6px;
   cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 .searchButton:hover {
-  background-color: #1e40af; /* Even darker blue for hover */
+  background-color: #61dafb; /* Even darker blue for hover */
   transform: translateY(-3px); /* Slight lift on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
@@ -133,6 +133,10 @@
   color: white;
 }
 
+.css-t3ipsp-control:hover {
+  border-color: #61dafb;
+}
+
 /* Selected option styling */
 .css-1n7v3ny-option {
   background-color: #2563eb; /* Blue */
@@ -144,4 +148,20 @@
   color: #6b7280; /* Gray text */
   font-style: italic;
 }
+ 
+.logoText {
+  color: #61dafb;
+}
+
+.logoContainer {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.logo {
+  width: 100%; /* Adjusts width to the container's size */
+  max-width: 150px; /* Limits the width to 150px */
+  height: auto; /* Maintains the aspect ratio */
+}
+
+
 

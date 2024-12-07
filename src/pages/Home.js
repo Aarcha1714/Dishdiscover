@@ -106,8 +106,12 @@ const Home = () => {
   return (
       <div className={styles.container}>
         {/* Search Box Section */}
-        <div>DishDiscover</div>
-        <p>Find the best recipes using your favorite ingredients!</p>
+        <div className={styles.logoContainer}>
+        {/* Add your logo image here */}
+        <img src="/1.png" alt="DishDiscover Logo" className={styles.logo} />
+        <p className={styles.logoText}>Find the best recipes using your favorite ingredients!</p>
+        </div>
+        {/* <div>DishDiscover</div> */}
         <div className={styles.selectButtonWrapper}>
           <CreatableSelect
             placeholder="Search ingredients"
@@ -135,7 +139,7 @@ const Home = () => {
         {/* Recipes Display Section */}
         {isLoading ? (
         <div className={styles.loader}>
-          <TailSpin color="#2563eb" height={20} width={20} />
+          <TailSpin color="#61dafb" height={20} width={20} />
         </div>
       ) : (
         recipes.length > 0 && (

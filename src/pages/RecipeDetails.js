@@ -45,7 +45,7 @@ const RecipeDetails = () => {
     <div className={styles.container}>
        {isLoading ? (
         <div className={styles.loader}>
-          <TailSpin color="#2563eb" height={20} width={20} />
+          <TailSpin color="#61dafb" height={20} width={20} />
         </div>
       ) :
       recipeDetails ? (
