@@ -1,0 +1,62 @@
+.container {
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .recipesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 24px; /* Larger gaps between cards */
+    padding: 10px;
+    width: 100%; /* Full width for alignment */
+  }
+  
+  /* Individual recipe card styling */
+  .recipeCard {
+    border: 1px solid rgba(209, 213, 219, 0.3); /* Lighter border */
+    padding: 20px;
+    border-radius: 12px;
+    background: #ffffff; /* White background for contrast */
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .recipeCard:hover {
+    transform: translateY(-5px) scale(1.03); /* Slight zoom and lift on hover */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2); /* Stronger hover shadow */
+  }
+  
+  
+  .recipeCard img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .backButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .arrowIcon {
+    font-size: 28px;
+    color: #61dafb; /* Vibrant blue */
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .backButton:hover .arrowIcon {
+    transform: translateX(-6px); /* Slide left on hover */
+  }
+  

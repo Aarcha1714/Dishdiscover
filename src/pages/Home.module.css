@@ -163,5 +163,16 @@
   height: auto; /* Maintains the aspect ratio */
 }
 
+.recipeCard {
+  position: relative; /* Make this relative so we can position the favorite icon inside it */
+  /* Other styles for the card */
+}
+
+.favoriteIcon {
+  position: absolute; /* Position it absolutely inside the recipe card */
+  top: 10px; /* Distance from the top of the card */
+  right: 10px; /* Distance from the right edge of the card */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+}
 
 

@@ -13,7 +13,7 @@
 
 /* Adding background image to the whole page */
 body {
-  background: url('/public/bg4.jpg') no-repeat center center fixed;
+  background:  linear-gradient(135deg, rgba(8, 7, 7, 0.8), rgba(8, 7, 7, 0.8)), url('/public/bg4.jpg') no-repeat center center fixed;
   background-size: cover;
   margin: 0;
   padding: 0;

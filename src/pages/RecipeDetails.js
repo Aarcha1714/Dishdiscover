@@ -77,9 +77,12 @@ const RecipeDetails = () => {
             ))}
           </ul>
           <div className={styles.head}>Instructions:</div>
-          <p className={styles.instructions}>
-            {recipeDetails.instructions || 'No instructions available.'}
-          </p>
+          <p
+          className={styles.instructions}
+          dangerouslySetInnerHTML={{
+            __html: recipeDetails.instructions || 'No instructions available.',
+          }}
+        ></p>
         </div>
       ) : (
         <p>No recipe details available.</p>

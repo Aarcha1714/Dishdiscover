@@ -3,19 +3,20 @@ import CreatableSelect from 'react-select/creatable';
 import styles from './Home.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { TailSpin } from 'react-loader-spinner';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import data from './data';
 
-// const API_KEY = '6e837d10e4614b47a57625349a547e60'; 
-const API_KEY = 'db258a1c37374b2ab455c036a69e609a';
+const API_KEY = '6e837d10e4614b47a57625349a547e60'; 
+// const API_KEY = 'db258a1c37374b2ab455c036a69e609a';
 const INITIAL_SEARCH_QUERY = 'tomato'; // Example initial search query
 
-const Home = () => {
+const Home = ({favoriteRecipes, setFavoriteRecipes}) => {
   const [colourOptions, setColourOptions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
   console.log(selectedOptions.length);
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(recipes);
+  console.log(favoriteRecipes);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -102,7 +103,22 @@ const Home = () => {
   const handleRecipeClick = (id) => {
     navigate(`/recipe/${id}`, { state: { previousSearch: selectedOptions, previousRecipes: recipes } });
   };
+  const handleFavoriteClick = (recipe) => {
+    setFavoriteRecipes((prevFavorites) => {
+      // Check if the recipe already exists in favorites
+      const isFavorite = prevFavorites.some(favRecipe => favRecipe.id === recipe.id);
+  
+      if (isFavorite) {
+        // Remove the recipe from favorites
+        return prevFavorites.filter(favRecipe => favRecipe.id !== recipe.id);
+      } else {
+        // Add the recipe to favorites
+        return [...prevFavorites, recipe];
+      }
+    });
+  };
 
+  const isFavorite = (recipeId) => favoriteRecipes?.length&&favoriteRecipes?.some(recipe => recipe.id === recipeId);
   return (
       <div className={styles.container}>
         {/* Search Box Section */}
@@ -110,6 +126,11 @@ const Home = () => {
         {/* Add your logo image here */}
         <img src="/1.png" alt="DishDiscover Logo" className={styles.logo} />
         <p className={styles.logoText}>Find the best recipes using your favorite ingredients!</p>
+        <FaHeart
+          className={styles.favoriteIcon}
+          color="red"
+          onClick={() => navigate('/favorites')}
+        />
         </div>
         {/* <div>DishDiscover</div> */}
         <div className={styles.selectButtonWrapper}>
@@ -143,23 +164,27 @@ const Home = () => {
         </div>
       ) : (
         recipes.length > 0 && (
-        <div className={styles.recipesContainer}>
-          {recipes.map((recipe) => (
-            <div
-              key={recipe.id}
-              className={styles.recipeCard}
-              onClick={() => handleRecipeClick(recipe.id)}
-            >
-              <h3>{recipe.title}</h3>
-              <img src={recipe.image} alt={recipe.title} className={styles.recipeImage} />
-              <p>Used Ingredients: {recipe.usedIngredientCount}</p>
-              {/* <p>Missed Ingredients: {recipe.missedIngredientCount}</p> */}
-            </div>
-          ))}
-        </div>
-      ))}
-
-      </div>
+          <div className={styles.recipesContainer}>
+            {recipes.map((recipe) => (
+              <div key={recipe.id} className={styles.recipeCard} onClick={() => handleRecipeClick(recipe.id)}>
+                <div 
+                  className={styles.favoriteIcon} 
+                  onClick={(e) => {
+                    e.stopPropagation();  
+                    handleFavoriteClick(recipe);
+                  }}
+                >
+                 {isFavorite(recipe.id) ? <FaHeart color="red" /> : <FaRegHeart color="gray" />}
+                </div>
+                <h3>{recipe.title}</h3>
+                <img src={recipe.image} alt={recipe.title} className={styles.recipeImage} />
+                <p>Used Ingredients: {recipe.usedIngredientCount}</p>
+              </div>
+            ))}
+          </div>
+        )
+      )}
+    </div>
   );
 };
 
