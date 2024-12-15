@@ -106,11 +106,11 @@ const Home = ({favoriteRecipes, setFavoriteRecipes}) => {
   const handleFavoriteClick = (recipe) => {
     setFavoriteRecipes((prevFavorites) => {
       // Check if the recipe already exists in favorites
-      const isFavorite = prevFavorites.some(favRecipe => favRecipe.id === recipe.id);
+      const isFavorite = prevFavorites?.some(favRecipe => favRecipe.id === recipe.id);
   
       if (isFavorite) {
         // Remove the recipe from favorites
-        return prevFavorites.filter(favRecipe => favRecipe.id !== recipe.id);
+        return prevFavorites?.filter(favRecipe => favRecipe.id !== recipe.id);
       } else {
         // Add the recipe to favorites
         return [...prevFavorites, recipe];
@@ -129,7 +129,7 @@ const Home = ({favoriteRecipes, setFavoriteRecipes}) => {
         <FaHeart
           className={styles.favoriteIcon}
           color="red"
-          onClick={() => navigate('/favorites')}
+          onClick={() => navigate('/favorites',  {state: { previousSearch: selectedOptions, previousRecipes: recipes } })}
         />
         </div>
         {/* <div>DishDiscover</div> */}

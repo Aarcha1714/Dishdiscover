@@ -22,7 +22,7 @@ const handleRecipeClick = (id) => {
       <h2>Your Favorite Recipes</h2>
       {favoriteRecipes.length > 0 ? (
         <div className={styles.recipesContainer}>
-          {favoriteRecipes.map((recipe) => (
+          {favoriteRecipes?.map((recipe) => (
             <div key={recipe.id} onClick={() => handleRecipeClick(recipe.id)} className={styles.recipeCard}>
               <h3>{recipe.title}</h3>
               <img src={recipe.image} alt={recipe.title} className={styles.recipeImage} />
