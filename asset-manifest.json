@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Dishdiscover/static/css/main.8b20f487.css",
+    "main.js": "/Dishdiscover/static/js/main.1cbc30b8.js",
+    "static/js/453.ed3810f9.chunk.js": "/Dishdiscover/static/js/453.ed3810f9.chunk.js",
+    "static/media/bg4.jpg": "/Dishdiscover/static/media/bg4.140a44af48bb3e76c20f.jpg",
+    "index.html": "/Dishdiscover/index.html",
+    "main.8b20f487.css.map": "/Dishdiscover/static/css/main.8b20f487.css.map",
+    "main.1cbc30b8.js.map": "/Dishdiscover/static/js/main.1cbc30b8.js.map",
+    "453.ed3810f9.chunk.js.map": "/Dishdiscover/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b20f487.css",
+    "static/js/main.1cbc30b8.js"
+  ]
+}
