@@ -5,8 +5,8 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { FaClock, FaUsers } from 'react-icons/fa';
 import { TailSpin } from 'react-loader-spinner';
 
-// const API_KEY = '6e837d10e4614b47a57625349a547e60';
-const API_KEY = 'db258a1c37374b2ab455c036a69e609a';
+const API_KEY = '6e837d10e4614b47a57625349a547e60';
+// const API_KEY = 'db258a1c37374b2ab455c036a69e609a';
 const RecipeDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();

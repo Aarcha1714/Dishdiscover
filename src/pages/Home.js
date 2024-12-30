@@ -6,25 +6,37 @@ import { TailSpin } from 'react-loader-spinner';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import data from './data';
 
-const API_KEY = '6e837d10e4614b47a57625349a547e60'; 
-// const API_KEY = 'db258a1c37374b2ab455c036a69e609a';
+// const API_KEY = '6e837d10e4614b47a57625349a547e60'; 
+const API_KEY = 'db258a1c37374b2ab455c036a69e609a';
 const INITIAL_SEARCH_QUERY = 'tomato'; // Example initial search query
 
 const Home = ({favoriteRecipes, setFavoriteRecipes}) => {
   const [colourOptions, setColourOptions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  console.log(selectedOptions.length);
+  console.log(selectedOptions);
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   console.log(favoriteRecipes);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
+    const savedSelectedOptions = localStorage.getItem('selectedOptions');
+    const savedRecipes = localStorage.getItem('recipes');
+
+    if (savedSelectedOptions) {
+      setSelectedOptions(JSON.parse(savedSelectedOptions));
+    }
+
+    if (savedRecipes) {
+      setRecipes(JSON.parse(savedRecipes));
+    }
     const previousSearch = location.state?.previousSearch || [];
     const previousRecipes = location.state?.previousRecipes || [];
     console.log(previousSearch)
     console.log(previousRecipes)
+    if (!savedSelectedOptions && previousSearch) {
     setSelectedOptions(previousSearch);
+    }
     if (previousRecipes.length > 0) {
       setRecipes(previousRecipes);
     } else if (previousSearch.length > 0) {
@@ -91,6 +103,8 @@ const Home = ({favoriteRecipes, setFavoriteRecipes}) => {
   
       if (recipes.length > 0) {
         setRecipes(recipes); // Set fetched recipes to state
+        localStorage.setItem('selectedOptions', JSON.stringify(selectedOptions));
+        localStorage.setItem('recipes', JSON.stringify(recipes));
       } else {
         console.log('No recipes found for the selected ingredients.');
         setRecipes([]);
